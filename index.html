@@ -1,0 +1,1095 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Лето в Кедре — семейные заезды 2026 · Санаторий «Кедр» Саянск</title>
+  <meta name="description" content="Летние семейные заезды в санаторий «Кедр» в Саянске. Заезды с июня по сентябрь 2026. Радоновая лаборатория, минеральные источники, торфяная грязь. Каждый период — своё акционное предложение для семей с детьми.">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Лето в Кедре — для всей семьи">
+  <meta property="og:description" content="Летние семейные заезды в санаторий «Кедр» в Саянске. Каждый период лета — своё акционное предложение.">
+  <meta property="og:image" content="assets/img/hero/hero-1-building.jpg">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/jpeg" href="assets/img/logo/logo-kedr.jpg">
+
+  <!-- Google Fonts (временно — заменим после решения по шрифту) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Onest:wght@500;700&display=swap" rel="stylesheet">
+
+  <!-- Стили -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- ===================================================
+       ЭКРАН 1 — ШАПКА (sticky)
+       =================================================== -->
+  <header class="site-header" id="site-header">
+    <div class="container">
+      <a href="#" class="site-header__brand">
+        <div class="site-header__logo">КЕДР</div>
+        <div class="site-header__brand-text">
+          <div class="site-header__brand-name">Санаторий Кедр</div>
+          <div class="site-header__brand-sub">Лето 2026 • Семейные заезды</div>
+        </div>
+      </a>
+
+      <nav class="site-header__nav" aria-label="Главное меню">
+        <a href="#offers">Акции лета</a>
+        <a href="#putevki">Путёвки</a>
+        <a href="#rooms">Номера</a>
+        <a href="#schedule">Расписание</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+
+      <div class="site-header__actions">
+        <a href="tel:+73955370465" class="site-header__phone">8 (39553) 704-65</a>
+        <a href="#form" class="btn btn-primary site-header__cta">Записаться</a>
+        <button class="site-header__burger" id="burger" aria-label="Открыть меню" aria-expanded="false" aria-controls="mobile-menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Мобильное меню (оверлей на весь экран) -->
+  <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+    <div class="mobile-menu__inner">
+      <nav class="mobile-menu__nav" aria-label="Мобильное меню">
+        <a href="#offers">Акции лета</a>
+        <a href="#putevki">Путёвки</a>
+        <a href="#rooms">Номера</a>
+        <a href="#schedule">Расписание</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+
+      <div class="mobile-menu__contacts">
+        <a href="tel:+73955370465" class="mobile-menu__phone">8 (39553) 704-65</a>
+        <a href="mailto:mail@kurortkedr.ru" class="mobile-menu__email">mail@kurortkedr.ru</a>
+        <a href="#form" class="btn btn-primary mobile-menu__cta">Записаться на летний заезд</a>
+      </div>
+    </div>
+  </div>
+
+  <main>
+
+    <!-- ===================================================
+         ЭКРАН 2 — HERO (карусель — пока заглушка)
+         =================================================== -->
+    <section class="hero" id="hero">
+      <!-- Карусель: 3 слайда, автопрокрутка, кликаемые точки -->
+      <div class="hero__carousel" aria-hidden="true">
+        <div class="hero__slide active">
+          <picture>
+            <source media="(max-width: 768px)" srcset="assets/img/hero/hero-1-building-mobile.jpg">
+            <img src="assets/img/hero/hero-1-building-desktop.jpg" alt="" loading="eager" fetchpriority="high">
+          </picture>
+        </div>
+        <div class="hero__slide">
+          <picture>
+            <source media="(max-width: 768px)" srcset="assets/img/hero/hero-2-family-mobile.jpg">
+            <img src="assets/img/hero/hero-2-family-desktop.jpg" alt="" loading="lazy">
+          </picture>
+        </div>
+        <div class="hero__slide">
+          <picture>
+            <source media="(max-width: 768px)" srcset="assets/img/hero/hero-3-kids-mobile.jpg">
+            <img src="assets/img/hero/hero-3-kids-desktop.jpg" alt="" loading="lazy">
+          </picture>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="hero__badge">
+          <span class="badge badge-outline">Лето 2026 · Семейные заезды</span>
+        </div>
+
+        <h1>
+          Лето в Кедре —
+          <span class="accent">для всей семьи.</span>
+        </h1>
+
+        <p class="hero__subtitle">
+          Сосновый бор Присаянья, минеральные источники,
+          радоновая лаборатория. Заезды с июня по сентябрь.
+          Каждый период — своё акционное предложение
+          для семей с детьми.
+        </p>
+
+        <div class="hero__actions">
+          <a href="#offers" class="btn btn-primary">Посмотреть выгоды лета</a>
+          <a href="tel:+73955370465" class="btn btn-secondary">Позвонить менеджеру</a>
+        </div>
+      </div>
+
+      <!-- Точки-индикаторы карусели -->
+      <div class="hero__dots" role="tablist" aria-label="Слайды">
+        <button class="hero__dot active" type="button" data-slide="0" aria-label="Слайд 1"></button>
+        <button class="hero__dot" type="button" data-slide="1" aria-label="Слайд 2"></button>
+        <button class="hero__dot" type="button" data-slide="2" aria-label="Слайд 3"></button>
+      </div>
+
+      <div class="hero__scroll-hint">↓ Что внутри</div>
+    </section>
+
+
+    <!-- ===================================================
+         ЭКРАН 3 — КТО МЫ (с SVG-картой маршрута)
+         =================================================== -->
+    <section class="section-white" id="about">
+      <div class="container">
+        <div class="about-grid">
+          <div class="about-text">
+            <h2>Санаторий «Кедр». Саянск, Иркутская область.</h2>
+            <p>
+              «Кедр» — многопрофильный санаторий в сосновом бору
+              Присаянья. Лечим, оздоравливаем, принимаем семьи с детьми.
+              Работаем круглый год, но летом — особенный сезон.
+            </p>
+            <p>
+              Летом в Кедре собираются три истории: дети на каникулах,
+              родители на процедурах, бабушки и дедушки с внуками.
+              Под каждый период лета — свои условия и свои выгоды.
+            </p>
+          </div>
+
+          <a href="https://yandex.ru/maps/?ll=103.171702%2C53.207573&mode=routes&rtext=52.289588%2C104.280606~54.108884%2C102.133203&rtt=auto&z=8.78" target="_blank" rel="noopener" class="route-map" aria-label="Открыть маршрут в Яндекс.Картах">
+            <img src="assets/img/about/route-map.jpg" alt="Карта маршрута Иркутск — Саянск (санаторий Кедр)" loading="lazy">
+            <div class="route-map__overlay">
+              <span>Открыть в Яндекс.Картах →</span>
+            </div>
+            <div class="route-map__caption">
+              ~250 км · ~4 часа на машине · электричка до Зимы
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ===================================================
+         ЭКРАН 4 — ⭐ ВЫГОДЫ ПО ПЕРИОДАМ (главный блок)
+         =================================================== -->
+    <section class="section-cream offers-section" id="offers">
+      <div class="container">
+        <div class="section-header">
+          <h2>Каждый период лета — своё акционное предложение</h2>
+          <p>
+            Кедр работает в формате акционного нон-стопа.
+            Заезжайте в любой период с июня по август — точная сумма
+            скидки зависит от месяца и состава семьи.
+          </p>
+        </div>
+
+        <div class="offers-grid">
+
+          <!-- Карточка 1 — ИЮНЬ -->
+          <article class="offer-card">
+            <div class="offer-card__badge">
+              <span class="badge badge-gold">1–23 июня</span>
+            </div>
+            <h3>«Пионер — всем пример»</h3>
+            <div class="offer-card__sub">Семейный заезд по детской цене</div>
+
+            <div class="offer-card__body">
+              <p>
+                Для ребёнка на дополнительном месте в номере с родителями —
+                символическая цена за день при оздоровительной путёвке.
+                По путёвке с лечением — фиксированная цена за день для ребёнка.
+                Скидка до 70% на отдельное место для ребёнка.
+              </p>
+            </div>
+
+            <a href="#form" class="btn btn-outline-dark">Узнать стоимость для моей семьи</a>
+          </article>
+
+          <!-- Карточка 2 — ИЮЛЬ -->
+          <article class="offer-card">
+            <div class="offer-card__badge">
+              <span class="badge badge-gold">1–31 июля</span>
+            </div>
+            <h3>«Здоровье по ГОСТу»</h3>
+            <div class="offer-card__sub">+5 процедур ребёнку каждый день</div>
+
+            <div class="offer-card__body">
+              <p>
+                К детской оздоровительной путёвке — пять процедур в день
+                включены бесплатно:
+              </p>
+              <ul class="offer-card__list">
+                <li>🌊 Бассейн</li>
+                <li>🌿 Фитотерапия (травяной чай)</li>
+                <li>💨 Ингаляции</li>
+                <li>⚡ Физиотерапия</li>
+                <li>💧 Водолечение (ванны)</li>
+              </ul>
+              <p class="muted mt-16">
+                Акция распространяется и на ранние брони в июне и августе
+                при условии предоплаты.
+              </p>
+            </div>
+
+            <a href="#form" class="btn btn-outline-dark">Записаться на июль</a>
+          </article>
+
+          <!-- Карточка 3 — АВГУСТ -->
+          <article class="offer-card">
+            <div class="offer-card__badge">
+              <span class="badge badge-gold">1–31 августа</span>
+            </div>
+            <h3>«Салют, семья!»</h3>
+            <div class="offer-card__sub">20% скидка на пару «взрослый + ребёнок»</div>
+
+            <div class="offer-card__body">
+              <p>
+                В августе на каждую пару «взрослый + один ребёнок» —
+                скидка 20% от прейскуранта.
+              </p>
+              <p>
+                Если в семье несколько таких пар (мама+ребёнок,
+                бабушка+второй ребёнок) — каждая пара идёт со скидкой.
+              </p>
+              <p class="muted mt-16">
+                Принцип: на каждого взрослого — один ребёнок по акции.
+              </p>
+            </div>
+
+            <a href="#form" class="btn btn-outline-dark">Записаться на август</a>
+          </article>
+
+        </div>
+
+        <p class="offers-disclaimer">
+          Акции действуют для физических лиц при 100% самостоятельной оплате
+          путёвки. Скидки между акциями не суммируются. Перенос дат на акцию
+          «Пионер» не предусмотрен. Точные условия и стоимость для вашей семьи
+          рассчитает менеджер по бронированию. Дети принимаются только
+          в сопровождении законных представителей.
+        </p>
+      </div>
+    </section>
+
+
+    <!-- ===================================================
+         ЭКРАН 5 — КАКИЕ ПУТЁВКИ
+         =================================================== -->
+    <section class="section-white" id="putevki">
+      <div class="container">
+        <div class="section-header">
+          <h2>Путёвка с лечением или оздоровительная — в чём разница</h2>
+          <p>
+            Летом большинство семей выбирают оздоровительную —
+            она проще в оформлении и подходит ребёнку без диагноза.
+          </p>
+        </div>
+
+        <div class="putevki-grid">
+
+          <!-- Карточка А — Оздоровительная (выделена) -->
+          <article class="putevka-card putevka-card--featured">
+            <h3>Оздоровительная путёвка</h3>
+            <div class="putevka-card__sub">Профилактика + отдых</div>
+
+            <div class="putevka-card__section">
+              <div class="putevka-card__section-title">Что включено</div>
+              <ul>
+                <li>Проживание в выбранной категории номера</li>
+                <li>Питание (3 раза для взрослого, 4 раза для ребёнка)</li>
+                <li>Осмотр терапевта в первый день</li>
+                <li>Бассейн</li>
+                <li>Фитотерапия</li>
+                <li>Ингаляции</li>
+                <li>Физиолечение</li>
+                <li>Водолечение</li>
+              </ul>
+            </div>
+
+            <div class="putevka-card__section">
+              <div class="putevka-card__section-title">Документы</div>
+              <p>✅ Санаторно-курортная карта <strong>не требуется</strong></p>
+            </div>
+
+            <div class="putevka-card__section">
+              <div class="putevka-card__section-title">Кому подходит</div>
+              <p>Семьям с детьми без конкретного медицинского диагноза.</p>
+            </div>
+
+            <p class="muted">Подходит под все три летние акции.</p>
+          </article>
+
+          <!-- Карточка Б — С лечением -->
+          <article class="putevka-card">
+            <h3>Путёвка с лечением</h3>
+            <div class="putevka-card__sub">Курс лечения по показаниям</div>
+
+            <div class="putevka-card__section">
+              <div class="putevka-card__section-title">Что включено</div>
+              <ul>
+                <li>Проживание в выбранной категории номера</li>
+                <li>Питание (3 раза для взрослого, 4 раза для ребёнка)</li>
+                <li>Приём врача с назначениями</li>
+                <li>Индивидуальный комплекс лечебных процедур</li>
+                <li>Контроль динамики лечения</li>
+              </ul>
+            </div>
+
+            <div class="putevka-card__section">
+              <div class="putevka-card__section-title">Документы</div>
+              <p>📋 Нужна санаторно-курортная карта. Оформляется в поликлинике бесплатно или в санатории за дополнительную плату.</p>
+            </div>
+
+            <div class="putevka-card__section">
+              <div class="putevka-card__section-title">Кому подходит</div>
+              <p>
+                Если есть конкретная задача — пролечить спину, суставы,
+                нервную систему, гинекологию, заболевания дыхательной
+                или сердечно-сосудистой системы.
+              </p>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ===================================================
+         ЭКРАН 6 — ПОЧЕМУ СТОИТ ВЫБРАТЬ САНАТОРИЙ КЕДР
+         =================================================== -->
+    <section class="section-cream" id="why-kedr">
+      <div class="container">
+        <div class="section-header">
+          <h2>Почему стоит поехать именно к нам</h2>
+          <p>Три фактора, которых нет в других санаториях региона.</p>
+        </div>
+
+        <!-- 1. Радоновая лаборатория -->
+        <div class="feature-row">
+          <div class="feature-row__image">
+            <div class="img-placeholder img-placeholder--wide">
+              ФОТО: ванна с колбами радона<br>
+              и подписями в нКи/л
+            </div>
+          </div>
+          <div class="feature-row__content">
+            <h3>Радонотерапия в собственной лаборатории</h3>
+            <p>
+              Единственное место такого уровня от Дальнего Востока до Омска,
+              где принимают радоновые ванны с точной дозировкой.
+              Безопасно и эффективно. Помогает при заболеваниях суставов,
+              кожи, нервной системы.
+            </p>
+            <p class="feature-row__disclaimer">
+              Имеются противопоказания. Необходима консультация специалиста.
+            </p>
+          </div>
+        </div>
+
+        <!-- 2. Минеральные источники -->
+        <div class="feature-row">
+          <div class="feature-row__image">
+            <div class="img-placeholder img-placeholder--wide">
+              ФОТО: бювет или стакан<br>
+              минеральной воды
+            </div>
+          </div>
+          <div class="feature-row__content">
+            <h3>Минеральная вода Ордайская-1 и Ордайская-2</h3>
+            <p>
+              Прямо из скважины на территории санатория.
+              Помогает при заболеваниях желудочно-кишечного тракта,
+              нарушениях обмена веществ.
+            </p>
+          </div>
+        </div>
+
+        <!-- 3. Торфяная грязь -->
+        <div class="feature-row">
+          <div class="feature-row__image">
+            <div class="img-placeholder img-placeholder--wide">
+              ФОТО: процедура грязелечения<br>
+              или контейнер с торфом
+            </div>
+          </div>
+          <div class="feature-row__content">
+            <h3>Торфяная грязь с клюквенных болот Присаянья</h3>
+            <p>
+              Природный лечебный фактор. Особенно эффективна
+              для лечения суставов, спины и кожных заболеваний.
+              Заготавливается рядом с санаторием.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ===================================================
+         ЭКРАН 7 — ЧЕМ ЗАНЯТ РЕБЁНОК
+         =================================================== -->
+    <section class="section-white" id="kids">
+      <div class="container">
+        <div class="section-header">
+          <h2>Ребёнок не будет в телефоне</h2>
+          <p>
+            Пока вы на процедурах, ребёнок занят делом.
+            Своя программа на каждый день каникул.
+          </p>
+        </div>
+
+        <div class="kids-grid">
+
+          <div class="kids-card">
+            <div class="kids-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M2 20a4 4 0 0 0 4 0 4 4 0 0 1 4 0 4 4 0 0 0 4 0 4 4 0 0 1 4 0 4 4 0 0 0 4 0"/>
+                <path d="M2 16a4 4 0 0 0 4 0 4 4 0 0 1 4 0 4 4 0 0 0 4 0 4 4 0 0 1 4 0 4 4 0 0 0 4 0"/>
+                <circle cx="17" cy="6" r="2"/>
+                <path d="M9.5 14 8 8.5 14 7l1 4"/>
+              </svg>
+            </div>
+            <h3>Бассейн</h3>
+            <p>Минеральная вода, занятия с инструктором, свободное плавание под присмотром.</p>
+          </div>
+
+          <div class="kids-card">
+            <div class="kids-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M12 2 4 7v6c0 5 3.5 8.5 8 9 4.5-.5 8-4 8-9V7l-8-5z"/>
+                <circle cx="9" cy="11" r="1"/>
+                <circle cx="15" cy="11" r="1"/>
+                <circle cx="12" cy="14" r="1"/>
+                <circle cx="9" cy="16" r="1"/>
+                <circle cx="15" cy="16" r="1"/>
+              </svg>
+            </div>
+            <h3>Галокамера</h3>
+            <p>Соляная пещера 10 минут в день. Поддержка иммунитета и дыхания.</p>
+          </div>
+
+          <div class="kids-card">
+            <div class="kids-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M19 6.4 4 6 3 18l16 2 1-11.6z"/>
+                <path d="M3 6 21 4"/>
+                <path d="M9 10v6"/>
+                <path d="M14 10v6"/>
+              </svg>
+            </div>
+            <h3>Детский клуб «Клюква» и СПО «Гном»</h3>
+            <p>Оборудованное пространство и студенческий педагогический отряд на каникулы. Мастер-классы, настолки, мультфильмы, экскурсии.</p>
+          </div>
+
+          <div class="kids-card">
+            <div class="kids-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="2" y="6" width="20" height="14" rx="2"/>
+                <path d="M2 10h20"/>
+                <path d="M7 6 5 2"/>
+                <path d="M17 6l2-4"/>
+                <path d="M10 14l4 2-4 2v-4z" fill="currentColor"/>
+              </svg>
+            </div>
+            <h3>Советские мультфильмы и кино</h3>
+            <p>Вечерние показы. Дети узнают то, что любили смотреть их родители.</p>
+          </div>
+
+          <div class="kids-card">
+            <div class="kids-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M12 22v-7"/>
+                <path d="M9 15l3-3 3 3"/>
+                <path d="M12 12V8"/>
+                <path d="M6 8c0-3.3 2.7-6 6-6s6 2.7 6 6c0 2-1 3.5-2 4H8c-1-.5-2-2-2-4z"/>
+                <path d="M8 12l-2 3"/>
+                <path d="M16 12l2 3"/>
+              </svg>
+            </div>
+            <h3>Прогулки на природе</h3>
+            <p>Экологическая тропа, терренкур в сосновом бору, свежий воздух.</p>
+          </div>
+
+          <div class="kids-card">
+            <div class="kids-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/>
+                <path d="M2 12h20"/>
+              </svg>
+            </div>
+            <h3>Спорт и игры</h3>
+            <p>Корт, мини-футбол, волейбол, бильярд, утренняя зарядка.</p>
+          </div>
+
+        </div>
+
+        <div class="kids-photos">
+          <div class="img-placeholder img-placeholder--square">
+            ФОТО: дети в «Клюкве»<br>
+            на мастер-классе
+          </div>
+          <div class="img-placeholder img-placeholder--square">
+            ФОТО: вожатый ведёт<br>
+            детей по тропе
+          </div>
+          <div class="img-placeholder img-placeholder--square">
+            ФОТО: дети в бассейне<br>
+            с инструктором
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ===================================================
+         ЭКРАН 8 — ЧЕМ ЗАНЯТ ВЗРОСЛЫЙ
+         =================================================== -->
+    <section class="section-cream" id="adult">
+      <div class="container">
+        <div class="section-header">
+          <h2>Параллельно — ваше оздоровление</h2>
+          <p>
+            Пока детьми занимаются вожатые — вы посещаете свои
+            процедуры, которые назначил терапевт.
+          </p>
+        </div>
+
+        <div class="adult-grid">
+
+          <div class="adult-block">
+            <h3>Что лечим</h3>
+            <ul>
+              <li>Опорно-двигательный аппарат (спина, суставы)</li>
+              <li>Нервная система</li>
+              <li>Сердечно-сосудистая система</li>
+              <li>Органы дыхания</li>
+              <li>Гинекология и урология</li>
+              <li>Желудочно-кишечный тракт</li>
+              <li>Кожные заболевания</li>
+              <li>Эндокринная система</li>
+            </ul>
+          </div>
+
+          <div class="adult-block">
+            <h3>Основные процедуры</h3>
+            <ul>
+              <li>Радоновые ванны</li>
+              <li>Грязелечение (торфяная грязь)</li>
+              <li>Минеральные ванны</li>
+              <li>Подводное вытяжение позвоночника</li>
+              <li>Массаж</li>
+              <li>Магнитотерапия (включая SIS)</li>
+              <li>УВТ (ударно-волновая терапия)</li>
+              <li>ВЛОК (лазерное облучение крови)</li>
+              <li>Физиолечение</li>
+              <li>Авантрон, Полимаг, КриоДжет</li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ===================================================
+         ЭКРАН 9 — НОМЕРА
+         =================================================== -->
+    <section class="section-white" id="rooms">
+      <div class="container">
+        <div class="section-header">
+          <h2>Номера для семьи</h2>
+          <p>
+            Большинство семей с одним ребёнком выбирают
+            «Стандарт +» или «Семейный».
+          </p>
+        </div>
+
+        <div class="rooms-grid">
+
+          <article class="room-card">
+            <div class="room-card__image">
+              <img src="assets/img/rooms/room-standard-plus.jpg" alt="Номер Стандарт+" loading="lazy">
+            </div>
+            <div class="room-card__body">
+              <h3>Стандарт +</h3>
+              <div class="room-card__meta">13 м² · Wi-Fi · ванна · можно с детьми</div>
+              <div class="room-card__price">от 3 700 ₽/сутки за номер</div>
+            </div>
+          </article>
+
+          <article class="room-card">
+            <div class="room-card__image">
+              <img src="assets/img/rooms/room-uluchshennyy.jpg" alt="Номер Улучшенный" loading="lazy">
+            </div>
+            <div class="room-card__body">
+              <h3>Улучшенный</h3>
+              <div class="room-card__meta">12 м² · Wi-Fi · ванна · можно с детьми</div>
+              <div class="room-card__price">от 4 200 ₽/сутки за номер</div>
+            </div>
+          </article>
+
+          <article class="room-card">
+            <div class="room-card__image">
+              <img src="assets/img/rooms/room-semeynyy.jpg" alt="Номер Семейный" loading="lazy">
+            </div>
+            <div class="room-card__body">
+              <h3>Семейный</h3>
+              <div class="room-card__meta">13 м² · Wi-Fi · ванна · можно с детьми</div>
+              <div class="room-card__price">от 3 700 ₽/сутки за номер</div>
+            </div>
+          </article>
+
+          <article class="room-card">
+            <div class="room-card__image">
+              <img src="assets/img/rooms/room-lyuks.jpg" alt="Номер Люкс" loading="lazy">
+            </div>
+            <div class="room-card__body">
+              <h3>Люкс</h3>
+              <div class="room-card__meta">28 м² · Wi-Fi · ванна · можно с детьми</div>
+              <div class="room-card__price">от 5 590 ₽/сутки за номер</div>
+            </div>
+          </article>
+
+        </div>
+
+        <p class="rooms-disclaimer">
+          Указана цена за номер без учёта летних акций и состава путёвки.
+          Точную стоимость заезда для вашей семьи рассчитает менеджер.
+        </p>
+      </div>
+    </section>
+
+
+    <!-- ===================================================
+         ЭКРАН 10 — РАСПИСАНИЕ ДНЯ (плейсхолдеры)
+         =================================================== -->
+    <section class="section-cream" id="schedule">
+      <div class="container">
+        <div class="section-header">
+          <h2>Как проходит день в Кедре</h2>
+          <p>
+            Примерный распорядок. Точные тайминги зависят
+            от вашего графика процедур.
+          </p>
+        </div>
+
+        <div class="schedule-grid">
+
+          <div class="schedule-col">
+            <h3>Утро</h3>
+            <div class="schedule-col__time-range">ХХ:ХХ – ХХ:ХХ</div>
+            <ul>
+              <li><span class="schedule-col__time">ХХ:ХХ</span>Подъём, утренняя зарядка</li>
+              <li><span class="schedule-col__time">ХХ:ХХ</span>Завтрак (4-разовое для детей)</li>
+              <li><span class="schedule-col__time">ХХ:ХХ</span>Утренний обход у терапевта</li>
+              <li><span class="schedule-col__time">ХХ:ХХ</span>Процедуры взрослые</li>
+              <li><span class="schedule-col__time">ХХ:ХХ</span>Программа для детей в «Клюкве»</li>
+              <li><span class="schedule-col__time">ХХ:ХХ</span>Бассейн</li>
+              <li><span class="schedule-col__time">ХХ:ХХ</span>Обед</li>
+            </ul>
+          </div>
+
+          <div class="schedule-col">
+            <h3>День</h3>
+            <div class="schedule-col__time-range">ХХ:ХХ – ХХ:ХХ</div>
+            <ul>
+              <li><span class="schedule-col__time">ХХ:ХХ</span>Тихий час</li>
+              <li><span class="schedule-col__time">ХХ:ХХ</span>Полдник</li>
+              <li><span class="schedule-col__time">ХХ:ХХ</span>Дневные процедуры</li>
+              <li><span class="schedule-col__time">ХХ:ХХ</span>Мастер-классы, экскурсии для детей</li>
+              <li><span class="schedule-col__time">ХХ:ХХ</span>Прогулки по экотропе</li>
+              <li><span class="schedule-col__time">ХХ:ХХ</span>Свободное время</li>
+            </ul>
+          </div>
+
+          <div class="schedule-col">
+            <h3>Вечер</h3>
+            <div class="schedule-col__time-range">ХХ:ХХ – ХХ:ХХ</div>
+            <ul>
+              <li><span class="schedule-col__time">ХХ:ХХ</span>Ужин</li>
+              <li><span class="schedule-col__time">ХХ:ХХ</span>Вечерняя программа</li>
+              <li><span class="schedule-col__time">ХХ:ХХ</span>Кино или мультфильмы</li>
+              <li><span class="schedule-col__time">ХХ:ХХ</span>Второй ужин (детский)</li>
+              <li><span class="schedule-col__time">ХХ:ХХ</span>Отбой для детей</li>
+              <li><span class="schedule-col__time">ХХ:ХХ</span>Тишина в корпусе</li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ===================================================
+         ЭКРАН 11 — ДОКУМЕНТЫ ДЛЯ ЗАЕЗДА
+         =================================================== -->
+    <section class="section-white" id="docs">
+      <div class="container">
+        <div class="section-header">
+          <h2>Что взять с собой</h2>
+          <p>
+            Простой список. Большая часть оформляется
+            за 1–2 дня в местной поликлинике.
+          </p>
+        </div>
+
+        <div class="docs-grid">
+
+          <div class="docs-col">
+            <h3>Для взрослого</h3>
+            <ul>
+              <li><span class="docs-col__check">✓</span> Паспорт</li>
+              <li><span class="docs-col__check">✓</span> Санаторно-курортная карта (если путёвка с лечением) — оформляется в поликлинике бесплатно или у нас в санатории за 2 500 ₽</li>
+            </ul>
+          </div>
+
+          <div class="docs-col">
+            <h3>Для ребёнка</h3>
+            <ul>
+              <li><span class="docs-col__check">✓</span> Свидетельство о рождении (оригинал)</li>
+              <li><span class="docs-col__check">✓</span> Прививочный сертификат</li>
+            </ul>
+          </div>
+
+        </div>
+
+        <div class="docs-action">
+          <a href="assets/docs/pamyatka-roditelyam.pdf" class="btn btn-outline-dark" download>
+            Скачать памятку для родителей (PDF)
+          </a>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ===================================================
+         ЭКРАН 12 — FAQ
+         =================================================== -->
+    <section class="section-cream" id="faq">
+      <div class="container">
+        <div class="section-header">
+          <h2>Частые вопросы</h2>
+        </div>
+
+        <div class="faq-list">
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              <span>Сколько в итоге стоит путёвка с летней акцией?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              Стоимость зависит от категории номера, типа путёвки (с лечением / оздоровительная), сроков заезда и состава семьи. Конкретную цифру рассчитает менеджер по бронированию. Оставьте заявку или позвоните.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              <span>Нужна ли санаторно-курортная карта для ребёнка на оздоровительной путёвке?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              Нет, не нужна. Карта обязательна только для путёвки с лечением.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              <span>Как далеко от Иркутска и как добраться?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p><strong>По железной дороге:</strong> до станции Зима. От ж/д вокзала г. Зима на автобусе или маршрутном такси (около 30 минут) до автовокзала г. Саянска. От автовокзала до санатория на такси можно добраться за 10 минут. Посмотреть расписание ЖД-транспорта можно на сайте <a href="http://www.tutu.ru/" target="_blank" rel="noopener">tutu.ru</a>.</p>
+
+              <p><strong>На автобусе или маршрутном такси</strong> из городов: Иркутск, Ангарск, Тулун, Братск и других — до автовокзала г. Саянска. От автовокзала до санатория на такси.</p>
+
+              <p><strong>Иркутск, Нижнеудинск → Санаторий «Кедр»:</strong> гость самостоятельно приобретает билет на маршруты автобуса № 570, 546, 552 в кассе автовокзала г. Иркутска или г. Нижнеудинска (остановки согласно маршруту) до г. Саянска и сообщает водителю автобуса, что едет до Санатория «Кедр». Можно купить билет онлайн на сайте <a href="https://avtovokzal-on-line.ru/" target="_blank" rel="noopener">avtovokzal-on-line.ru</a>. При посадке в автобус гость предупреждает водителя, что едет до санатория «Кедр».</p>
+
+              <p><strong>Санаторий «Кедр» → Иркутск, Нижнеудинск</strong> на рейсах автобуса № 570, 546, 552: гость бронирует место в автобусе через администратора санатория на ресепшене или по телефону <a href="tel:+73955601351">+7 (3955) 60-13-51</a>.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              <span>Когда считается день заезда — можно ли приехать за 1 день до начала путёвки?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              Приехать в санаторий можно накануне даты заезда после 19:00. За каждый час до 19:00 нужно внести доплату. Те, кто из Саянска, — приехать можно утром в 8:00 в день заезда.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              <span>Буду с дороги голодным(ой), что делать?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              До прибытия, во время общения с менеджером, можно заказать ужин за 500 рублей. Приезжаете после 19:00, заселяетесь на ресепшн, оплачиваете ужин. Если ужин не нужен — можно сходить в кафе, которое находится на первом этаже.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              <span>Есть ли рассрочка или оплата по частям?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              Условия оплаты обсуждаются с менеджером.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              <span>Что если ребёнок заболел и не смог заехать?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              Условия возврата и переноса обсуждаются с менеджером. При болезни во время заезда — медпомощь оказывается на месте.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              <span>С какого возраста принимаете детей?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              Принимаем с рождения. До 4 лет — без процедур. С 4 лет — детские процедуры по показаниям.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              <span>Можно ли с домашним животным?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              Нет, размещение с животными не предусмотрено.
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ===================================================
+         ЭКРАН 13 — ФОРМА + КОНТАКТЫ
+         =================================================== -->
+    <section class="form-section" id="form">
+      <div class="container">
+
+        <!-- Левая колонка: контакты -->
+        <div>
+          <div class="form-intro">
+            <h2>Записаться на летний заезд</h2>
+            <p>
+              Менеджер свяжется в рабочее время
+              и рассчитает точную стоимость для вашей семьи.
+              Без обязательств.
+            </p>
+          </div>
+
+          <div class="contact-cards">
+            <div class="contact-card">
+              <div class="contact-card__label">📞 Позвонить</div>
+              <div class="contact-card__value">
+                <a href="tel:+73955370465">8 (39553) 704-65</a>
+              </div>
+              <div class="contact-card__hint">Круглосуточно</div>
+            </div>
+
+            <div class="contact-card">
+              <div class="contact-card__label">✉️ E-mail</div>
+              <div class="contact-card__value">
+                <a href="mailto:mail@kurortkedr.ru">mail@kurortkedr.ru</a>
+              </div>
+              <div class="contact-card__hint">Ответ в течение дня</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Правая колонка: форма -->
+        <div class="form-card">
+          <form id="signup-form" novalidate>
+
+            <div class="form-field">
+              <label for="parent-name">Имя <span class="required">*</span></label>
+              <input type="text" id="parent-name" name="parentName" required autocomplete="given-name">
+              <div class="form-field__error" id="error-parent-name"></div>
+            </div>
+
+            <div class="form-field">
+              <label for="phone">Телефон <span class="required">*</span></label>
+              <input type="tel" id="phone" name="phone" placeholder="+7 (___) ___-__-__" required autocomplete="tel" inputmode="tel">
+              <div class="form-field__error" id="error-phone"></div>
+            </div>
+
+            <div class="form-field">
+              <label for="child-age">Возраст ребёнка</label>
+              <select id="child-age" name="childAge">
+                <option value="">Выберите</option>
+                <option value="no-child">Еду без ребёнка</option>
+                <option value="0-3">Дети до 3-х лет</option>
+                <option value="3-7">Дети до 7-ми лет</option>
+                <option value="7-15">Дети до 15-ти лет</option>
+              </select>
+            </div>
+
+            <div class="form-field">
+              <label for="period">Желаемый период заезда</label>
+              <select id="period" name="period">
+                <option value="">Выберите</option>
+                <option value="june-1-23">Июнь (1–23)</option>
+                <option value="june-24+">Июнь (после 23)</option>
+                <option value="july-1-15">Июль (1–15)</option>
+                <option value="july-16-31">Июль (16–31)</option>
+                <option value="aug-1-15">Август (1–15)</option>
+                <option value="aug-16-31">Август (16–31)</option>
+                <option value="sept-start">Начало сентября</option>
+                <option value="unknown">Ещё не определился(ась)</option>
+              </select>
+              <div class="form-field__hint">
+                В июне — детское доп.место за символическую цену.<br>
+                В июле — +5 бесплатных процедур ребёнку.<br>
+                В августе — 20% скидки на пару «взрослый + ребёнок».<br>
+                Менеджер подскажет лучший вариант под вашу семью.
+              </div>
+            </div>
+
+            <div class="form-field">
+              <label for="company">Кто поедет</label>
+              <textarea id="company" name="company" rows="2" placeholder="Например: мама с ребёнком и бабушка"></textarea>
+            </div>
+
+            <div class="form-field">
+              <label for="city">Откуда вы?</label>
+              <select id="city" name="city">
+                <option value="">Выберите</option>
+                <option value="irkutsk">Иркутск</option>
+                <option value="sayansk">Саянск</option>
+                <option value="ulan-ude">Улан-Удэ</option>
+                <option value="chita">Чита</option>
+                <option value="other">Другой город / населённый пункт Иркутской области</option>
+              </select>
+            </div>
+
+            <div class="form-field">
+              <label for="comment">Комментарий</label>
+              <textarea id="comment" name="comment" rows="3"></textarea>
+            </div>
+
+            <label class="form-checkbox">
+              <input type="checkbox" id="consent-pd" name="consentPd" required>
+              <span>Согласен(на) на обработку персональных данных <span class="required">*</span></span>
+            </label>
+            <div class="form-field__error" id="error-consent-pd"></div>
+
+            <!-- Honeypot — скрытое поле для защиты от спам-ботов.
+                 Реальные пользователи не видят, боты заполняют — отсекаем. -->
+            <div class="form-honeypot" aria-hidden="true">
+              <label for="website">Сайт</label>
+              <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+            </div>
+
+            <label class="form-checkbox">
+              <input type="checkbox" id="consent-max" name="consentMax">
+              <span>
+                Хочу получать новости в MAX-канале Кедра.
+                Присоединяйтесь к каналу:
+                <a href="https://max.ru/join/dLMtKIwz6O_Rf9-shVJ7WQ-XWctZspZykKA6kHwzJP4?utm_source=landing&utm_medium=form_checkbox&utm_campaign=leto2026&utm_content=max_subscribe" target="_blank" rel="noopener">max.ru/join/...</a>
+              </span>
+            </label>
+
+            <button type="submit" class="btn btn-primary form-submit">
+              Отправить заявку
+            </button>
+
+            <p class="form-footnote">
+              Ваши данные защищены. Не передаём третьим лицам.<br>
+              <a href="assets/docs/politika-obrabotki-pdn.pdf" target="_blank">Политика обработки персональных данных</a>
+            </p>
+
+          </form>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- ===================================================
+       ЭКРАН 14 — ФУТЕР
+       =================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+
+      <div class="footer-grid">
+
+        <div class="footer-col">
+          <h4>Кедр</h4>
+          <p>ООО «Санаторий "Кедр"»</p>
+          <p>Иркутская область, Саянск,<br>Автодорога Западная тер., 4</p>
+          <p>с 1992 года</p>
+          <p>ИНН: 3814019221<br>ОГРН: 1143850031753</p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Навигация</h4>
+          <ul>
+            <li><a href="#offers">Акции лета</a></li>
+            <li><a href="#putevki">Путёвки</a></li>
+            <li><a href="#rooms">Номера</a></li>
+            <li><a href="#schedule">Расписание</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#form">Записаться</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Документы</h4>
+          <ul>
+            <li><a href="assets/docs/licenziya-meddeyatelnost.pdf" target="_blank">Лицензия на медицинскую деятельность (PDF)</a></li>
+            <li><a href="assets/docs/licenziya-nedra.pdf" target="_blank">Лицензия на пользование недрами (PDF)</a></li>
+            <li><a href="assets/docs/politika-obrabotki-pdn.pdf" target="_blank">Политика обработки ПДн (PDF)</a></li>
+            <li><a href="assets/docs/soglasie-na-obrabotku-pdn.pdf" target="_blank">Согласие на обработку ПДн (PDF)</a></li>
+            <li><a href="assets/docs/dogovor-oferta.pdf" target="_blank">Договор-оферта (PDF)</a></li>
+            <li><a href="assets/docs/pravila-prebyvaniya.pdf" target="_blank">Правила пребывания (PDF)</a></li>
+            <li><a href="assets/docs/rekvizity.pdf" target="_blank">Реквизиты (PDF)</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Контакты</h4>
+          <ul>
+            <li><a href="tel:+73955370465">8 (39553) 704-65</a></li>
+            <li><a href="mailto:mail@kurortkedr.ru">mail@kurortkedr.ru</a></li>
+            <li><a href="https://kurortkedr.ru" target="_blank" rel="noopener">Основной сайт: kurortkedr.ru</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        © 1992–2026 ООО «Санаторий Кедр». Все права защищены.
+      </div>
+    </div>
+  </footer>
+
+  <!-- Toast-уведомление (показывается при отправке формы) -->
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <!-- Скрипты (пустой файл-заглушка на этапе 1) -->
+  <script src="script.js"></script>
+
+</body>
+</html>
