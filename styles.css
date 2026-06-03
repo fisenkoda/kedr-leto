@@ -1024,7 +1024,7 @@ section {
 }
 
 .putevka-card--featured::before {
-  content: 'ЛЕТНИЙ ВЫБОР';
+  content: attr(data-badge);
   position: absolute;
   top: -10px;
   right: 24px;
@@ -1970,4 +1970,319 @@ section {
 .toast.toast--error {
   background-color: #8C2F25;
   border-color: #FF9D8E;
+}
+
+
+/* ============================================================
+   25. ДОБАВЛЕНО (правки лета 2026): логотип-картинка, акцент цены,
+       причины, универсальный аккордеон, блок взрослого, выделение номеров
+   ============================================================ */
+
+/* Логотип-картинка в шапке (правка 17) */
+.site-header__logo-img {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  flex-shrink: 0;
+  border: 2px solid var(--gold);
+}
+
+/* Акцент цены в карточке июня (правка 3) */
+.offer-card__highlight {
+  display: inline-block;
+  margin: 0 0 16px;
+  padding: 8px 14px;
+  background-color: var(--gold-soft);
+  border: 1px solid var(--gold);
+  border-radius: 8px;
+  color: var(--green-dark);
+  font-size: 15px;
+  font-weight: 600;
+}
+.offer-card__highlight strong {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--green-dark);
+}
+
+/* Блок "Почему к нам" — причины (правка 8) */
+.reasons {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+  max-width: 920px;
+  margin: 0 auto;
+}
+.reason {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 20px;
+  align-items: start;
+}
+.reason__num {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: var(--green-dark);
+  color: var(--gold);
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.reason__body h3 {
+  color: var(--green-dark);
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+.reason__body > p {
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--text);
+  margin-bottom: 14px;
+}
+.reason__body > p:last-child {
+  margin-bottom: 0;
+}
+@media (max-width: 600px) {
+  .reason {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .reason__num {
+    width: 38px;
+    height: 38px;
+    font-size: 18px;
+  }
+}
+
+/* Универсальный аккордеон (правки 8, 11) */
+.accordion {
+  margin-top: 16px;
+  background-color: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 2px 20px;
+  box-shadow: var(--shadow-card);
+}
+.accordion-item {
+  border-bottom: 1px solid var(--border);
+}
+.accordion-item:last-child {
+  border-bottom: none;
+}
+.accordion-question {
+  width: 100%;
+  text-align: left;
+  padding: 18px 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  font-family: var(--font-body);
+  line-height: 1.4;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.accordion-question:hover {
+  color: var(--green-dark);
+}
+.accordion-icon {
+  flex-shrink: 0;
+  color: var(--gold);
+  font-size: 26px;
+  font-weight: 300;
+  line-height: 1;
+  transition: transform var(--transition-med);
+  width: 24px;
+  text-align: center;
+}
+.accordion-question[aria-expanded="true"] .accordion-icon {
+  transform: rotate(45deg);
+}
+.accordion-answer {
+  padding: 0 0 18px;
+  color: var(--text-mute);
+  font-size: 15px;
+  line-height: 1.65;
+  display: none;
+}
+.accordion-answer.open {
+  display: block;
+}
+.accordion-answer p {
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--text-mute);
+}
+.accordion-answer p + p {
+  margin-top: 10px;
+}
+.accordion-disclaimer {
+  margin-top: 10px;
+  font-size: 12px;
+  font-style: italic;
+  color: var(--text-mute);
+  background-color: var(--cream);
+  border-left: 3px solid var(--gold);
+  border-radius: 3px;
+  padding: 8px 12px;
+}
+
+/* Блок взрослого — переработка (правка 11) */
+.adult-wrap {
+  max-width: 920px;
+  margin: 0 auto;
+}
+.adult-block--full {
+  background-color: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 28px;
+  box-shadow: var(--shadow-card);
+}
+.adult-block--full + .adult-block--full {
+  margin-top: 24px;
+}
+.adult-block--full > h3 {
+  color: var(--green-dark);
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+.adult-conditions {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 640px) {
+  .adult-conditions {
+    grid-template-columns: 1fr 1fr;
+    column-gap: 28px;
+  }
+}
+.adult-conditions li {
+  padding: 8px 0 8px 18px;
+  position: relative;
+  font-size: 15px;
+  border-bottom: 1px solid var(--border);
+  color: var(--text);
+}
+.adult-conditions li::before {
+  content: '·';
+  position: absolute;
+  left: 0;
+  top: 3px;
+  color: var(--gold);
+  font-size: 22px;
+  line-height: 1;
+}
+.adult-block--full .accordion {
+  margin-top: 0;
+  padding: 2px 0;
+  border: none;
+  box-shadow: none;
+  background: none;
+}
+.adult-procedures-note {
+  margin-top: 14px;
+  font-size: 12px;
+  font-style: italic;
+  color: var(--text-mute);
+}
+
+/* Выделение номеров Семейный/Люкс (правка 12.2) */
+.room-card--featured {
+  border-color: var(--gold);
+  border-width: 2px;
+}
+.room-card--featured .room-card__image::after {
+  content: 'Выбор семей';
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 2;
+  background-color: var(--gold);
+  color: var(--green-dark);
+  padding: 4px 10px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border-radius: 3px;
+}
+
+
+/* ============================================================
+   26. ДОБАВЛЕНО (итерация 6): иконки и фото в аккордеоне факторов,
+       реальные детские фото, ссылка на Telegram-канал
+   ============================================================ */
+
+/* Иконка слева от заголовка пункта (только у природных факторов) */
+.accordion-q-text {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+.accordion-q-icon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  color: var(--green-mid);
+}
+
+/* Фото внутри раскрытого пункта аккордеона — показываем целиком */
+.accordion-photo {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  max-height: 440px;
+  margin: 0 auto 14px;
+  border-radius: 8px;
+}
+@media (max-width: 600px) {
+  .accordion-photo { max-height: 340px; }
+}
+
+/* Реальные детские фото вместо плейсхолдеров */
+.kids-photo {
+  aspect-ratio: 1 / 1;
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: var(--cream-deep);
+}
+.kids-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: saturate(0.92) brightness(1.02);
+}
+
+/* Ссылка на Telegram-канал вожатых в блоке детей */
+.kids-tg {
+  text-align: center;
+  max-width: 640px;
+  margin: -8px auto 8px;
+  font-size: 15px;
+  color: var(--text-mute);
+}
+.kids-tg a {
+  color: var(--green-dark);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.kids-tg a:hover {
+  color: var(--gold-dark);
 }

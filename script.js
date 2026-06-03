@@ -194,6 +194,39 @@ document.querySelectorAll('.faq-item').forEach(item => {
 
 
 /* ============================================================
+   3b. Универсальный аккордеон (.accordion)
+   Используется в блоках "Почему к нам" и "Процедуры".
+   Открытие одного пункта закрывает соседей в ТОМ ЖЕ .accordion.
+   ============================================================ */
+document.querySelectorAll('.accordion').forEach(acc => {
+  const items = acc.querySelectorAll('.accordion-item');
+  items.forEach(item => {
+    const btn = item.querySelector('.accordion-question');
+    const answer = item.querySelector('.accordion-answer');
+    if (!btn || !answer) return;
+
+    btn.addEventListener('click', () => {
+      const isOpen = btn.getAttribute('aria-expanded') === 'true';
+
+      // Закрываем все пункты внутри этого же аккордеона
+      items.forEach(other => {
+        const ob = other.querySelector('.accordion-question');
+        const oa = other.querySelector('.accordion-answer');
+        if (ob) ob.setAttribute('aria-expanded', 'false');
+        if (oa) oa.classList.remove('open');
+      });
+
+      // Открываем текущий, если был закрыт
+      if (!isOpen) {
+        btn.setAttribute('aria-expanded', 'true');
+        answer.classList.add('open');
+      }
+    });
+  });
+});
+
+
+/* ============================================================
    4. Маска телефона +7 (___) ___-__-__
    ============================================================ */
 (function initPhoneMask() {
@@ -325,7 +358,7 @@ document.querySelectorAll('.faq-item').forEach(item => {
     const data = {
       timestamp: new Date().toISOString(),
       parentName: fields.parentName.value.trim(),
-      phone: fields.phone.value.replace(/^\+/, ''), // отправляем без плюса в начале
+      phone: fields.phone.value,
       childAge: document.getElementById('child-age').value,
       period: document.getElementById('period').value,
       company: document.getElementById('company').value.trim(),
