@@ -7,21 +7,21 @@
    1. CSS-переменные
    ============================================================ */
 :root {
-  /* Основные фирменные */
-  --green-dark:  #0F4D2E;
-  --green-mid:   #2E7D4F;
-  --green-deep:  #0A2E1B;
-  --green-soft:  rgba(15, 77, 46, 0.08);
-  --gold:        #D4B45A;
-  --gold-dark:   #B89A3F;
-  --gold-soft:   rgba(212, 180, 90, 0.15);
+  /* Основные фирменные (рефреш лето-2026) */
+  --green-dark:  #0E472A;
+  --green-mid:   #2C7A4A;
+  --green-deep:  #0A3320;
+  --green-soft:  rgba(14, 71, 42, 0.07);
+  --gold:        #C8A24C;
+  --gold-dark:   #A8842F;
+  --gold-soft:   rgba(200, 162, 76, 0.16);
 
   /* Тёплые добавочные */
-  --ochre:       #B8894A;
-  --ochre-dark:  #8F6932;
-  --cream:       #F5EFE0;
-  --cream-deep:  #EDE3CC;
-  --beige:       #E8DCC4;
+  --ochre:       #B4823F;
+  --ochre-dark:  #8A6228;
+  --cream:       #F4EDDB;
+  --cream-deep:  #EBE0C6;
+  --beige:       #E6D9BF;
   --brown-soft:  #6B4F35;
 
   /* Базовые */
@@ -643,12 +643,13 @@ section {
    ============================================================ */
 .hero {
   position: relative;
-  min-height: 80vh;
+  min-height: 82vh;
+  min-height: 82svh;
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   background-color: var(--green-dark);
   color: var(--white);
-  padding: 80px 0 80px;
+  padding: 96px 0 84px;
   overflow: hidden;
 }
 
@@ -782,8 +783,9 @@ section {
 
 @media (min-width: 768px) {
   .hero {
-    min-height: 100vh;
-    padding: 120px 0 100px;
+    min-height: 82vh;
+    min-height: 82svh;
+    padding: 104px 0 92px;
   }
   .hero__subtitle {
     font-size: 19px;
@@ -2286,3 +2288,128 @@ section {
 .kids-tg a:hover {
   color: var(--gold-dark);
 }
+
+/* ============================================================
+   27. ПРАВКИ ПАРТИИ ЛЕТО-2026:
+       анимации появления, баннер cookie/ПДн, блок партнёров,
+       капча, выравнивание повторяющихся элементов
+   ============================================================ */
+
+/* --- C2. Анимации появления (только при .anim-ready и без reduce-motion) --- */
+.anim-ready [data-reveal],
+.anim-ready [data-reveal-group] > * {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity .6s cubic-bezier(.22,.61,.36,1),
+              transform .6s cubic-bezier(.22,.61,.36,1);
+}
+.anim-ready [data-reveal].is-visible,
+.anim-ready [data-reveal-group].is-visible > * {
+  opacity: 1;
+  transform: none;
+}
+.anim-ready [data-reveal-group].is-visible > *:nth-child(2) { transition-delay: .09s; }
+.anim-ready [data-reveal-group].is-visible > *:nth-child(3) { transition-delay: .18s; }
+.anim-ready [data-reveal-group].is-visible > *:nth-child(4) { transition-delay: .27s; }
+.anim-ready [data-reveal-group].is-visible > *:nth-child(5) { transition-delay: .36s; }
+.anim-ready [data-reveal-group].is-visible > *:nth-child(6) { transition-delay: .45s; }
+
+/* Hero: контент мягко всплывает при загрузке */
+.anim-ready .hero[data-reveal-hero] .hero__badge,
+.anim-ready .hero[data-reveal-hero] h1,
+.anim-ready .hero[data-reveal-hero] .hero__subtitle,
+.anim-ready .hero[data-reveal-hero] .hero__actions {
+  opacity: 0;
+  animation: heroIn .7s cubic-bezier(.22,.61,.36,1) forwards;
+}
+.anim-ready .hero[data-reveal-hero] .hero__badge    { animation-delay: .05s; }
+.anim-ready .hero[data-reveal-hero] h1              { animation-delay: .15s; }
+.anim-ready .hero[data-reveal-hero] .hero__subtitle { animation-delay: .30s; }
+.anim-ready .hero[data-reveal-hero] .hero__actions  { animation-delay: .45s; }
+@keyframes heroIn { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
+
+/* Кнопки — чуть живее на ховере */
+.btn { transition: transform .18s ease, background-color .18s ease, box-shadow .18s ease, color .18s ease, border-color .18s ease; }
+.btn:hover { transform: translateY(-2px); }
+
+@media (prefers-reduced-motion: reduce) {
+  .anim-ready [data-reveal],
+  .anim-ready [data-reveal-group] > *,
+  .anim-ready .hero[data-reveal-hero] .hero__badge,
+  .anim-ready .hero[data-reveal-hero] h1,
+  .anim-ready .hero[data-reveal-hero] .hero__subtitle,
+  .anim-ready .hero[data-reveal-hero] .hero__actions {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+    transition: none !important;
+  }
+  .btn:hover { transform: none; }
+}
+
+/* --- D1. Блок «Нам доверяют» --- */
+.partners { background-color: var(--white); }
+.partners .section-header { margin-bottom: 36px; }
+.partners-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  max-width: 940px;
+  margin: 0 auto;
+}
+.partner-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 22px 18px;
+  min-height: 112px;
+  box-shadow: var(--shadow-card);
+  transition: box-shadow .2s ease, transform .2s ease;
+}
+.partner-logo:hover { box-shadow: var(--shadow-hover); transform: translateY(-2px); }
+.partner-logo img { max-height: 50px; width: auto; object-fit: contain; }
+.partners-note { text-align: center; color: var(--text-mute); font-size: 13px; margin-top: 22px; }
+@media (min-width: 768px) {
+  .partners-grid { grid-template-columns: repeat(4, 1fr); gap: 20px; }
+  .partner-logo { min-height: 120px; }
+  .partner-logo img { max-height: 56px; }
+}
+
+/* --- B3. Баннер cookie / обработки ПДн (152-ФЗ) --- */
+.cookie-banner {
+  position: fixed;
+  left: 16px; right: 16px; bottom: 16px;
+  z-index: 1000;
+  background-color: var(--green-deep);
+  color: var(--text-light);
+  border: 1px solid rgba(200,162,76,.35);
+  border-radius: 14px;
+  padding: 18px 20px;
+  box-shadow: 0 10px 40px rgba(0,0,0,.35);
+  display: none;
+  gap: 16px; align-items: center; justify-content: space-between; flex-wrap: wrap;
+}
+.cookie-banner.show { display: flex; animation: cookieUp .4s ease both; }
+@keyframes cookieUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: none; } }
+.cookie-banner__text { font-size: 13.5px; line-height: 1.5; flex: 1 1 440px; min-width: 240px; color: var(--text-light); }
+.cookie-banner__text strong { color: #fff; display: block; margin-bottom: 3px; font-family: var(--font-heading); font-size: 14px; }
+.cookie-banner__text a { color: var(--gold); text-decoration: underline; }
+.cookie-banner__actions { display: flex; gap: 10px; flex-shrink: 0; }
+.cookie-banner .btn { padding: 11px 22px; font-size: 14px; }
+@media (max-width: 600px) {
+  .cookie-banner { left: 10px; right: 10px; bottom: 10px; padding: 16px; }
+  .cookie-banner__actions { width: 100%; }
+  .cookie-banner__actions .btn { flex: 1; }
+}
+
+/* --- B2. SmartCaptcha в форме --- */
+.form-captcha { margin: 4px 0 16px; }
+
+/* --- C3. Выравнивание повторяющихся карточек (равная высота, CTA к низу) --- */
+.offers-grid, .putevki-grid, .rooms-grid { align-items: stretch; }
+.offer-card { display: flex; flex-direction: column; }
+.offer-card__body { flex: 1 0 auto; }
+.offer-card > .btn { margin-top: auto; }

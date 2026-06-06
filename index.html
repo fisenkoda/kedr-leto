@@ -23,6 +23,28 @@
 
   <!-- Стили -->
   <link rel="stylesheet" href="styles.css">
+
+  <!-- Yandex SmartCaptcha -->
+  <script src="https://smartcaptcha.yandexcloud.net/captcha.js" defer></script>
+
+  <!-- Включаем анимации появления, если пользователь не просил «уменьшить движение» -->
+  <script>
+    if (!window.matchMedia || !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      document.documentElement.classList.add('anim-ready');
+    }
+  </script>
+
+  <!-- Yandex.Metrika counter -->
+  <script type="text/javascript">
+    (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+    m[i].l=1*new Date();
+    for (var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r){return;}}
+    k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+    (window,document,"script","https://mc.yandex.ru/metrika/tag.js?id=109685901","ym");
+    ym(109685901,"init",{ssr:true,webvisor:true,clickmap:true,ecommerce:"dataLayer",accurateTrackBounce:true,trackLinks:true});
+  </script>
+  <noscript><div><img src="https://mc.yandex.ru/watch/109685901" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+  <!-- /Yandex.Metrika counter -->
 </head>
 <body>
 
@@ -81,7 +103,7 @@
     <!-- ===================================================
          ЭКРАН 2 — HERO (карусель — пока заглушка)
          =================================================== -->
-    <section class="hero" id="hero">
+    <section class="hero" id="hero" data-reveal-hero>
       <!-- Карусель: 3 слайда, автопрокрутка, кликаемые точки -->
       <div class="hero__carousel" aria-hidden="true">
         <div class="hero__slide active">
@@ -175,11 +197,11 @@
          =================================================== -->
     <section class="section-cream offers-section" id="offers">
       <div class="container">
-        <div class="section-header">
+        <div class="section-header" data-reveal>
           <h2>Летом в «Кедре» выгодно в любой месяц</h2>
         </div>
 
-        <div class="offers-grid">
+        <div class="offers-grid" data-reveal-group>
 
           <!-- Карточка 1 — ИЮНЬ -->
           <article class="offer-card">
@@ -271,7 +293,7 @@
          =================================================== -->
     <section class="section-white" id="putevki">
       <div class="container">
-        <div class="section-header">
+        <div class="section-header" data-reveal>
           <h2>Путёвка с лечением или оздоровительная — в чём разница</h2>
           <p>
             Оздоровительная — для лёгкого отдыха и коротких заездов.
@@ -280,7 +302,7 @@
           </p>
         </div>
 
-        <div class="putevki-grid">
+        <div class="putevki-grid" data-reveal-group>
 
           <!-- Карточка А — С лечением (выделена, приоритет) -->
           <article class="putevka-card putevka-card--featured" data-badge="Выбор для здоровья">
@@ -351,12 +373,12 @@
          =================================================== -->
     <section class="section-cream" id="why-kedr">
       <div class="container">
-        <div class="section-header">
+        <div class="section-header" data-reveal>
           <h2>Почему стоит поехать именно к нам</h2>
           <p>Три причины, по которым семьи выбирают «Кедр».</p>
         </div>
 
-        <div class="reasons">
+        <div class="reasons" data-reveal-group>
 
           <!-- Причина 1 — природные факторы (аккордеон) -->
           <div class="reason">
@@ -469,7 +491,7 @@
          =================================================== -->
     <section class="section-white" id="kids">
       <div class="container">
-        <div class="section-header">
+        <div class="section-header" data-reveal>
           <h2>Гаджетам — стоп</h2>
           <p>
             Пока вы на процедурах, ребёнок занят делом.
@@ -482,7 +504,7 @@
           <a href="https://t.me/sayanskKedr" target="_blank" rel="noopener">Telegram-канале вожатых</a>.
         </p>
 
-        <div class="kids-grid">
+        <div class="kids-grid" data-reveal-group>
 
           <div class="kids-card">
             <div class="kids-card__icon">
@@ -588,7 +610,7 @@
          =================================================== -->
     <section class="section-cream" id="adult">
       <div class="container">
-        <div class="section-header">
+        <div class="section-header" data-reveal>
           <h2>Параллельно — ваше оздоровление</h2>
           <p>
             Пока детьми занимаются вожатые — вы посещаете свои
@@ -711,7 +733,7 @@
          =================================================== -->
     <section class="section-white" id="rooms">
       <div class="container">
-        <div class="section-header">
+        <div class="section-header" data-reveal>
           <h2>Номера для семьи</h2>
           <p>
             Большинство семей с детьми выбирают «Семейный» или «Люкс» —
@@ -720,7 +742,7 @@
           </p>
         </div>
 
-        <div class="rooms-grid">
+        <div class="rooms-grid" data-reveal-group>
 
           <article class="room-card">
             <div class="room-card__image">
@@ -785,7 +807,7 @@
          =================================================== -->
     <section class="section-white" id="docs">
       <div class="container">
-        <div class="section-header">
+        <div class="section-header" data-reveal>
           <h2>Что взять с собой</h2>
           <p>
             Простой список. Большая часть оформляется
@@ -793,7 +815,7 @@
           </p>
         </div>
 
-        <div class="docs-grid">
+        <div class="docs-grid" data-reveal-group>
 
           <div class="docs-col">
             <h3>Для взрослого</h3>
@@ -828,11 +850,11 @@
          =================================================== -->
     <section class="section-cream" id="faq">
       <div class="container">
-        <div class="section-header">
+        <div class="section-header" data-reveal>
           <h2>Частые вопросы</h2>
         </div>
 
-        <div class="faq-list">
+        <div class="faq-list" data-reveal-group>
 
           <div class="faq-item">
             <button class="faq-question" aria-expanded="false">
@@ -870,6 +892,25 @@
             </div>
           </div>
 
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ===================================================
+         ЭКРАН 12b — НАМ ДОВЕРЯЮТ (партнёры)
+         =================================================== -->
+    <section class="section-white partners" id="partners">
+      <div class="container">
+        <div class="section-header" data-reveal>
+          <h2>Нам доверяют</h2>
+          <p>Сотрудники крупнейших предприятий региона восстанавливают здоровье в «Кедре».</p>
+        </div>
+        <div class="partners-grid" data-reveal-group>
+          <div class="partner-logo"><img src="assets/img/partners/sayanskhimplast.png" alt="Саянскхимпласт" loading="lazy"></div>
+          <div class="partner-logo"><img src="assets/img/partners/airport-irkutsk.png" alt="Международный аэропорт Иркутск" loading="lazy"></div>
+          <div class="partner-logo"><img src="assets/img/partners/ink.png" alt="Иркутская нефтяная компания" loading="lazy"></div>
+          <div class="partner-logo"><img src="assets/img/partners/solidarnost.png" alt="Страховая компания «Солидарность»" loading="lazy"></div>
         </div>
       </div>
     </section>
@@ -1003,13 +1044,19 @@
               </span>
             </label>
 
+            <!-- Yandex SmartCaptcha (рендерится из script.js) -->
+            <div class="form-captcha">
+              <div id="captcha-container"></div>
+              <div class="form-field__error" id="error-captcha"></div>
+            </div>
+
             <button type="submit" class="btn btn-primary form-submit">
               Отправить заявку
             </button>
 
             <p class="form-footnote">
               Ваши данные защищены. Не передаём третьим лицам.<br>
-              <a href="assets/docs/politika-obrabotki-pdn.pdf" target="_blank">Политика обработки персональных данных</a>
+              <a href="privacy.html" target="_blank">Политика обработки персональных данных</a>
             </p>
 
           </form>
@@ -1054,7 +1101,7 @@
             <li><a href="assets/docs/licenziya-meddeyatelnost.pdf" target="_blank">Лицензия на медицинскую деятельность (PDF)</a></li>
             <li><a href="assets/docs/licenziya-nedra.pdf" target="_blank">Лицензия на пользование недрами — грязь (PDF)</a></li>
             <li><a href="assets/docs/licenziya-radon.pdf" target="_blank">Лицензия на эксплуатацию радиационного источника (PDF)</a></li>
-            <li><a href="assets/docs/politika-obrabotki-pdn.pdf" target="_blank">Политика обработки персональных данных (PDF)</a></li>
+            <li><a href="privacy.html" target="_blank">Политика обработки персональных данных</a></li>
             <li><a href="assets/docs/pravila-prebyvaniya.pdf" target="_blank">Правила пребывания (PDF)</a></li>
             <li><a href="assets/docs/rekvizity.pdf" target="_blank">Реквизиты (PDF)</a></li>
           </ul>
@@ -1072,7 +1119,7 @@
       </div>
 
       <div class="footer-bottom">
-        © 1992–2026 ООО «Санаторий "Кедр"». Все права защищены.
+        © 1992–<span id="footer-year">2026</span> ООО «Санаторий "Кедр"». Все права защищены.
       </div>
     </div>
   </footer>
@@ -1080,7 +1127,23 @@
   <!-- Toast-уведомление (показывается при отправке формы) -->
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-  <!-- Скрипты (пустой файл-заглушка на этапе 1) -->
+  <!-- Баннер cookie / обработки персональных данных (152-ФЗ) -->
+  <div class="cookie-banner" id="cookie-banner" role="region" aria-label="Уведомление об обработке персональных данных">
+    <div class="cookie-banner__text">
+      <strong>Уведомление об обработке персональных данных</strong>
+      Сайт использует cookie-файлы и обрабатывает персональные данные посетителей
+      для корректной работы и улучшения сервиса в соответствии с Федеральным
+      законом № 152-ФЗ «О персональных данных». Продолжая пользоваться сайтом,
+      вы соглашаетесь с условиями
+      <a href="privacy.html" target="_blank">Политики обработки персональных данных</a>.
+    </div>
+    <div class="cookie-banner__actions">
+      <a href="privacy.html" class="btn btn-secondary" target="_blank">Подробнее</a>
+      <button type="button" class="btn btn-primary" id="cookie-accept">Принимаю</button>
+    </div>
+  </div>
+
+  <!-- Скрипты -->
   <script src="script.js"></script>
 
 </body>

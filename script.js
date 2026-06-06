@@ -366,6 +366,7 @@ document.querySelectorAll('.accordion').forEach(acc => {
       comment: document.getElementById('comment').value.trim(),
       consentPd: fields.consentPd.checked,
       consentMax: document.getElementById('consent-max').checked,
+      smartToken: window.__captchaToken || '',
       utm_source: getUtmParam('utm_source'),
       utm_medium: getUtmParam('utm_medium'),
       utm_campaign: getUtmParam('utm_campaign'),
@@ -390,6 +391,7 @@ document.querySelectorAll('.accordion').forEach(acc => {
 
       form.reset();
       showToast('Заявка отправлена. Свяжемся в течение часа.');
+      resetCaptcha();
 
     } catch (err) {
       console.error('Ошибка отправки заявки:', err);
@@ -444,6 +446,19 @@ document.querySelectorAll('.accordion').forEach(acc => {
     } else if (consentErr) {
       consentErr.textContent = '';
       consentErr.classList.remove('show');
+    }
+
+    // Капча
+    const captchaErr = document.getElementById('error-captcha');
+    if (!window.__captchaToken) {
+      if (captchaErr) {
+        captchaErr.textContent = 'Подтвердите, что вы не робот';
+        captchaErr.classList.add('show');
+      }
+      ok = false;
+    } else if (captchaErr) {
+      captchaErr.textContent = '';
+      captchaErr.classList.remove('show');
     }
 
     return ok;
@@ -506,3 +521,96 @@ function showToast(message, type) {
 }
 
 console.log('Лендинг загружен. Этап 3, итерация 4: валидация формы активна.');
+
+
+/* ============================================================
+   7. ПРАВКИ ПАРТИИ ЛЕТО-2026
+   ============================================================ */
+
+/* --- B2. Yandex SmartCaptcha: явный рендер + сброс --- */
+window.__captchaToken = null;
+window.__captchaWidgetId = null;
+
+function resetCaptcha() {
+  window.__captchaToken = null;
+  try {
+    if (window.smartCaptcha && window.__captchaWidgetId !== null && window.__captchaWidgetId !== undefined) {
+      window.smartCaptcha.reset(window.__captchaWidgetId);
+    }
+  } catch (e) { /* без шума */ }
+}
+
+(function renderCaptcha() {
+  const container = document.getElementById('captcha-container');
+  if (!container) return;
+  if (!window.smartCaptcha || typeof window.smartCaptcha.render !== 'function') {
+    setTimeout(renderCaptcha, 150); // ждём загрузки captcha.js (defer)
+    return;
+  }
+  try {
+    window.__captchaWidgetId = window.smartCaptcha.render('captcha-container', {
+      sitekey: 'ysc1_wELJ8jvcVpQUoUE67jojG2dnvbGa8srIDJjQdzwH28095c1b',
+      hl: 'ru',
+      callback: function (token) {
+        window.__captchaToken = token;
+        const err = document.getElementById('error-captcha');
+        if (err) { err.textContent = ''; err.classList.remove('show'); }
+      }
+    });
+  } catch (e) {
+    console.warn('SmartCaptcha render error:', e);
+  }
+})();
+
+
+/* --- B4. Текущий год в подвале --- */
+(function initFooterYear() {
+  const y = document.getElementById('footer-year');
+  if (y) y.textContent = new Date().getFullYear();
+})();
+
+
+/* --- B3. Баннер cookie / обработки ПДн --- */
+(function initCookieBanner() {
+  const banner = document.getElementById('cookie-banner');
+  const btn = document.getElementById('cookie-accept');
+  if (!banner) return;
+  const KEY = 'kedr_pd_consent';
+
+  let consented = false;
+  try { consented = localStorage.getItem(KEY) === '1'; } catch (e) {}
+
+  if (!consented) {
+    setTimeout(function () { banner.classList.add('show'); }, 800);
+  }
+  if (btn) {
+    btn.addEventListener('click', function () {
+      try { localStorage.setItem(KEY, '1'); } catch (e) {}
+      banner.classList.remove('show');
+    });
+  }
+})();
+
+
+/* --- C2. Появление блоков при скролле --- */
+(function initScrollReveal() {
+  const els = document.querySelectorAll('[data-reveal], [data-reveal-group]');
+  if (!els.length) return;
+
+  // Нет поддержки IntersectionObserver — показываем всё сразу
+  if (!('IntersectionObserver' in window)) {
+    els.forEach(function (el) { el.classList.add('is-visible'); });
+    return;
+  }
+
+  const io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+
+  els.forEach(function (el) { io.observe(el); });
+})();
