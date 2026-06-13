@@ -169,8 +169,28 @@ window.addEventListener('scroll', () => {
 
 
 /* ============================================================
-   3. Аккордеон FAQ
+   3. Аккордеоны (FAQ + универсальный) — плавное раскрытие
    ============================================================ */
+function slideOpen(el) {
+  el.classList.add('open');
+  el.style.maxHeight = el.scrollHeight + 'px';
+  el.addEventListener('transitionend', function te(e) {
+    if (e.propertyName !== 'max-height') return;
+    el.removeEventListener('transitionend', te);
+    if (el.classList.contains('open')) el.style.maxHeight = 'none';
+  });
+}
+
+function slideClose(el) {
+  if (!el.classList.contains('open') && !el.style.maxHeight) return;
+  if (el.style.maxHeight === 'none' || !el.style.maxHeight) {
+    el.style.maxHeight = el.scrollHeight + 'px';
+    void el.offsetHeight; // reflow
+  }
+  el.classList.remove('open');
+  el.style.maxHeight = '0px';
+}
+
 document.querySelectorAll('.faq-item').forEach(item => {
   const btn = item.querySelector('.faq-question');
   const answer = item.querySelector('.faq-answer');
@@ -181,13 +201,13 @@ document.querySelectorAll('.faq-item').forEach(item => {
     // Закрываем все остальные
     document.querySelectorAll('.faq-item').forEach(other => {
       other.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
-      other.querySelector('.faq-answer').classList.remove('open');
+      slideClose(other.querySelector('.faq-answer'));
     });
 
     // Открываем текущий, если был закрыт
     if (!isOpen) {
       btn.setAttribute('aria-expanded', 'true');
-      answer.classList.add('open');
+      slideOpen(answer);
     }
   });
 });
@@ -213,13 +233,13 @@ document.querySelectorAll('.accordion').forEach(acc => {
         const ob = other.querySelector('.accordion-question');
         const oa = other.querySelector('.accordion-answer');
         if (ob) ob.setAttribute('aria-expanded', 'false');
-        if (oa) oa.classList.remove('open');
+        if (oa) slideClose(oa);
       });
 
       // Открываем текущий, если был закрыт
       if (!isOpen) {
         btn.setAttribute('aria-expanded', 'true');
-        answer.classList.add('open');
+        slideOpen(answer);
       }
     });
   });
@@ -613,4 +633,43 @@ function resetCaptcha() {
   }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
 
   els.forEach(function (el) { io.observe(el); });
+})();
+
+
+/* --- Sticky-CTA на мобильных: показать после hero, скрыть у формы --- */
+(function initMobileCta() {
+  const cta = document.getElementById('mobile-cta');
+  if (!cta) return;
+
+  let formVisible = false;
+  const form = document.getElementById('form');
+  if (form && 'IntersectionObserver' in window) {
+    new IntersectionObserver(function (entries) {
+      formVisible = entries[0].isIntersecting;
+      update();
+    }, { threshold: 0.05 }).observe(form);
+  }
+
+  function bannerOpen() {
+    const b = document.getElementById('cookie-banner');
+    return b && b.classList.contains('show');
+  }
+
+  function update() {
+    const past = window.scrollY > window.innerHeight * 0.7;
+    let reachedForm = formVisible;
+    if (form) {
+      // Верх формы вошёл в экран или остался выше (футер) — кнопка не нужна
+      reachedForm = reachedForm || form.getBoundingClientRect().top < window.innerHeight - 120;
+    }
+    const show = past && !reachedForm && !bannerOpen();
+    cta.classList.toggle('show', show);
+    cta.setAttribute('aria-hidden', show ? 'false' : 'true');
+  }
+
+  window.addEventListener('scroll', update, { passive: true });
+  // Обновляемся и после клика «Принимаю» на баннере
+  const accept = document.getElementById('cookie-accept');
+  if (accept) accept.addEventListener('click', function () { setTimeout(update, 50); });
+  update();
 })();

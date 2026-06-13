@@ -2413,3 +2413,248 @@ section {
 .offer-card { display: flex; flex-direction: column; }
 .offer-card__body { flex: 1 0 auto; }
 .offer-card > .btn { margin-top: auto; }
+
+/* ============================================================
+   28. ПРАВКИ ПАРТИИ 2: буллеты акций, маршрут, about-заголовок,
+       фото факторов, соцсети, sticky-CTA
+   ============================================================ */
+
+/* П.3 — подстрока заголовка about */
+.about-h2-sub { font-size: 0.62em; font-weight: 600; color: var(--ochre-dark); display: inline-block; margin-top: 6px; }
+
+/* П.5 — маршрут в три строки */
+.route-map__caption--rows { display: flex; flex-direction: column; gap: 2px; }
+.route-map__caption--rows span { display: block; }
+.route-map__caption--rows span:first-child { font-weight: 600; color: var(--green-dark); }
+
+/* П.6.1 — буллеты в карточке «Пионер» */
+.offer-card__points { list-style: none; margin: 12px 0 0; padding: 0; }
+.offer-card__points li { position: relative; padding-left: 20px; margin-bottom: 10px; line-height: 1.5; }
+.offer-card__points li::before { content: ''; position: absolute; left: 2px; top: 0.52em; width: 8px; height: 8px; border-radius: 50%; background: var(--gold); }
+
+/* П.8 — ряд фото факторов в аккордеоне «Как мы это делаем» */
+.accordion-photos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 4px 0 14px; }
+.accordion-photos figure { margin: 0; }
+.accordion-photos img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 10px; display: block; }
+.accordion-photos figcaption { font-size: 12px; color: var(--text-mute); margin-top: 6px; text-align: center; }
+@media (max-width: 480px) {
+  .accordion-photos { gap: 8px; }
+  .accordion-photos figcaption { font-size: 11px; }
+}
+
+/* П.12 — иконки соцсетей */
+.socials { display: flex; gap: 10px; margin-top: 10px; }
+.social-btn { width: 42px; height: 42px; border-radius: 12px; display: inline-flex; align-items: center; justify-content: center; transition: transform .18s ease, box-shadow .18s ease, opacity .18s ease; flex-shrink: 0; }
+.social-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 16px rgba(0,0,0,.18); }
+.social-btn svg { width: 22px; height: 22px; fill: #fff; }
+.social-btn--vk { background: #0077FF; }
+.social-btn--ok { background: #EE8208; }
+.social-btn--max { background: transparent; }
+.social-btn--max img { width: 42px; height: 42px; border-radius: 12px; display: block; }
+.socials--footer { margin-top: 14px; }
+.contact-card .socials { margin-top: 8px; }
+
+/* Sticky-CTA на мобильных */
+.mobile-cta {
+  position: fixed; left: 16px; right: 16px; bottom: 14px; z-index: 90;
+  display: none; align-items: center; justify-content: center;
+  padding: 15px 24px; border-radius: 12px;
+  background: var(--gold); color: var(--green-dark);
+  font-weight: 600; font-size: 16px; text-align: center;
+  box-shadow: 0 8px 28px rgba(10, 51, 32, .35);
+  transform: translateY(130%); opacity: 0;
+  transition: transform .3s ease, opacity .3s ease;
+}
+.mobile-cta.show { transform: none; opacity: 1; }
+@media (max-width: 767px) {
+  .mobile-cta { display: flex; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .mobile-cta { transition: none; }
+}
+
+/* ============================================================
+   29. ДИЗАЙН-ПАКЕТЫ A+B (весь лендинг)
+   ============================================================ */
+
+/* --- A1: типографика — фирменный зелёный, плотные заголовки --- */
+h2 { color: var(--green-dark); letter-spacing: -0.012em; }
+.section-dark h2 { color: var(--white); }
+h3 { letter-spacing: -0.008em; }
+
+/* --- A4: hero — читаемость и глубина --- */
+.hero::after {
+  background:
+    linear-gradient(100deg, rgba(7, 38, 23, 0.80) 0%, rgba(10, 51, 32, 0.42) 48%, rgba(10, 51, 32, 0.50) 100%),
+    linear-gradient(180deg, rgba(10, 51, 32, 0.10) 0%, rgba(10, 51, 32, 0.72) 100%);
+}
+.hero h1 { text-shadow: 0 2px 20px rgba(0, 0, 0, 0.28); }
+.hero__subtitle { text-shadow: 0 1px 12px rgba(0, 0, 0, 0.30); }
+.hero__badge .badge,
+.badge-outline {
+  background: rgba(200, 162, 76, 0.16);
+  border-color: rgba(200, 162, 76, 0.65);
+  backdrop-filter: blur(2px);
+}
+
+/* --- A2: единый ритм — радиусы и тени --- */
+.btn { border-radius: 10px; }
+.offer-card, .putevka-card, .room-card, .kids-card,
+.faq-item, .contact-card, .docs-col { border-radius: 16px; }
+
+/* --- A3: SVG-иконки вместо эмодзи --- */
+.offer-card__list li { display: flex; align-items: center; }
+.offer-card__list .li-icon {
+  width: 18px; height: 18px; color: var(--gold-dark);
+  flex-shrink: 0; margin-right: 9px;
+}
+.contact-card__label { display: inline-flex; align-items: center; gap: 7px; }
+.contact-card__label .label-icon { width: 15px; height: 15px; flex-shrink: 0; }
+.doc-ic { width: 19px; height: 19px; flex-shrink: 0; display: inline-block; vertical-align: -4px; margin-right: 6px; }
+.doc-ic--ok { color: #2C7A4A; }
+.doc-ic--doc { color: var(--gold-dark); }
+
+/* --- B1: цветовая полоска месяца + лента «Хит лета» --- */
+.offer-card { position: relative; overflow: hidden; }
+.offer-card::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 5px;
+  background: var(--month, var(--gold));
+}
+.offer-card--june { --month: linear-gradient(90deg, #3E8E5A, #5FAE78); }
+.offer-card--july { --month: linear-gradient(90deg, #C8A24C, #DDBC6E); }
+.offer-card--aug  { --month: linear-gradient(90deg, #B4823F, #C99A58); }
+.offer-hit {
+  position: absolute; top: 16px; right: -36px;
+  transform: rotate(40deg);
+  background: var(--gold); color: var(--green-deep);
+  font-size: 11px; font-weight: 700; letter-spacing: 0.06em;
+  text-transform: uppercase; padding: 5px 44px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+  z-index: 1;
+}
+
+/* --- B2: живые ховеры карточек --- */
+.offer-card, .putevka-card, .room-card, .kids-card {
+  transition: transform .22s ease, box-shadow .22s ease;
+}
+.offer-card:hover, .putevka-card:hover,
+.room-card:hover, .kids-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-hover);
+}
+
+/* --- B3: фото — мягкий zoom на ховер --- */
+.room-card__photo, .kids-photos a, .kids-photos figure { overflow: hidden; }
+.room-card__photo img, .kids-photos img, .accordion-photos img {
+  transition: transform .4s ease;
+}
+.room-card:hover .room-card__photo img,
+.kids-photos a:hover img,
+.accordion-photos figure:hover img { transform: scale(1.045); }
+
+/* --- B4: кнопки акций со стрелкой --- */
+.offer-card .btn-outline-dark::after {
+  content: '→'; margin-left: 8px; transition: transform .18s ease;
+}
+.offer-card .btn-outline-dark:hover::after { transform: translateX(3px); }
+
+/* --- B5: плавные аккордеоны (высота + поворот плюса) --- */
+.accordion-answer, .faq-answer {
+  display: block;
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  padding-bottom: 0 !important;
+  transition: max-height .34s ease, opacity .26s ease, padding-bottom .34s ease;
+}
+.accordion-answer.open { padding-bottom: 18px !important; opacity: 1; }
+.faq-answer.open { opacity: 1; }
+.accordion-icon, .faq-icon {
+  transition: transform .25s ease;
+  display: inline-block;
+}
+.accordion-question[aria-expanded="true"] .accordion-icon,
+.faq-question[aria-expanded="true"] .faq-icon { transform: rotate(45deg); }
+@media (prefers-reduced-motion: reduce) {
+  .accordion-answer, .faq-answer, .accordion-icon, .faq-icon,
+  .offer-card, .putevka-card, .room-card, .kids-card,
+  .room-card__photo img, .kids-photos img, .accordion-photos img {
+    transition: none !important;
+  }
+}
+
+/* --- П.4: сноска под «Что взять с собой» --- */
+.docs-note {
+  max-width: 760px;
+  margin: 26px auto 0;
+  padding: 14px 18px;
+  background: var(--cream);
+  border: 1px solid var(--border-warm, var(--border));
+  border-radius: 12px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text-mute);
+  text-align: center;
+}
+.faq-answer.open { padding-bottom: 22px !important; }
+
+/* ============================================================
+   30. ФОТО В ПРИЧИНАХ: дуэт «параллельно» и фото «время вместе»
+   ============================================================ */
+.reason-duo {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-top: 18px;
+  max-width: 720px;
+}
+.reason-duo figure { margin: 0; }
+.reason-duo img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 14px;
+  display: block;
+  transition: transform .35s ease;
+}
+.reason-duo figure { overflow: hidden; border-radius: 14px; }
+.reason-duo figure:hover img { transform: scale(1.04); }
+.reason-duo figcaption {
+  font-size: 13px;
+  color: var(--text-mute);
+  text-align: center;
+  margin-top: 8px;
+}
+@media (max-width: 480px) {
+  .reason-duo { gap: 10px; }
+  .reason-duo figcaption { font-size: 11.5px; }
+}
+
+.reason__photo {
+  margin-top: 18px;
+  max-width: 640px;
+  overflow: hidden;
+  border-radius: 14px;
+}
+.reason__photo img {
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  display: block;
+  transition: transform .35s ease;
+}
+.reason__photo:hover img { transform: scale(1.04); }
+
+/* Фото внутри аккордеонов причин — единый стиль */
+.accordion-photo {
+  width: 100%;
+  max-width: 640px;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  border-radius: 12px;
+  display: block;
+  margin: 4px 0 14px;
+}
+@media (prefers-reduced-motion: reduce) {
+  .reason-duo img, .reason__photo img { transition: none !important; }
+}
