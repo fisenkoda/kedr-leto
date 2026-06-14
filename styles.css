@@ -2658,3 +2658,54 @@ h3 { letter-spacing: -0.008em; }
 @media (prefers-reduced-motion: reduce) {
   .reason-duo img, .reason__photo img { transition: none !important; }
 }
+
+/* ============================================================
+   31. Модалка с телефоном (только десктоп — на мобиле звонок)
+   ============================================================ */
+.phone-modal {
+  position: fixed; inset: 0; z-index: 200;
+  display: flex; align-items: center; justify-content: center;
+  padding: 20px;
+}
+.phone-modal[hidden] { display: none; }
+.phone-modal__overlay {
+  position: absolute; inset: 0;
+  background: rgba(10, 51, 32, 0.55);
+  backdrop-filter: blur(2px);
+  animation: phoneFade .2s ease;
+}
+.phone-modal__box {
+  position: relative;
+  background: #fff;
+  border-radius: 18px;
+  padding: 34px 40px 30px;
+  max-width: 380px; width: 100%;
+  text-align: center;
+  box-shadow: 0 24px 60px rgba(10, 51, 32, .35);
+  border-top: 5px solid var(--gold);
+  animation: phonePop .24s cubic-bezier(.2,.9,.3,1.2);
+}
+.phone-modal__close {
+  position: absolute; top: 12px; right: 14px;
+  background: none; border: none;
+  font-size: 26px; line-height: 1; color: var(--text-mute);
+  cursor: pointer; padding: 4px 8px; border-radius: 8px;
+  transition: background .15s ease, color .15s ease;
+}
+.phone-modal__close:hover { background: var(--cream); color: var(--green-dark); }
+.phone-modal__label {
+  font-size: 13px; text-transform: uppercase; letter-spacing: .07em;
+  color: var(--gold-dark); font-weight: 700; margin-bottom: 10px;
+}
+.phone-modal__number {
+  font-size: 32px; font-weight: 700; color: var(--green-dark);
+  letter-spacing: -0.01em; line-height: 1.1;
+}
+.phone-modal__hint {
+  margin-top: 14px; font-size: 14px; line-height: 1.55; color: var(--text-mute);
+}
+@keyframes phoneFade { from { opacity: 0; } to { opacity: 1; } }
+@keyframes phonePop { from { opacity: 0; transform: translateY(14px) scale(.96); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) {
+  .phone-modal__overlay, .phone-modal__box { animation: none; }
+}

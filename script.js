@@ -673,3 +673,35 @@ function resetCaptcha() {
   if (accept) accept.addEventListener('click', function () { setTimeout(update, 50); });
   update();
 })();
+
+
+/* --- Кнопка «Позвонить менеджеру»: десктоп → модалка, мобайл → звонок --- */
+(function initPhoneModal() {
+  const btn = document.getElementById('hero-call-btn');
+  const modal = document.getElementById('phone-modal');
+  if (!btn || !modal) return;
+
+  // Определяем «десктоп»: нет тач-режима с телефонией (грубо — ширина > 768 и нет coarse-указателя)
+  function isDesktop() {
+    return window.matchMedia('(min-width: 768px) and (pointer: fine)').matches;
+  }
+
+  function openModal(e) {
+    if (!isDesktop()) return; // на мобиле — обычный tel: звонок, ничего не перехватываем
+    e.preventDefault();
+    modal.hidden = false;
+    document.body.style.overflow = 'hidden';
+  }
+  function closeModal() {
+    modal.hidden = true;
+    document.body.style.overflow = '';
+  }
+
+  btn.addEventListener('click', openModal);
+  modal.querySelectorAll('[data-close-phone]').forEach(el =>
+    el.addEventListener('click', closeModal)
+  );
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && !modal.hidden) closeModal();
+  });
+})();
